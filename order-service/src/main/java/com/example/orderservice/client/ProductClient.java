@@ -1,5 +1,6 @@
 package com.example.orderservice.client;
 
+import com.example.orderservice.config.ProductServiceProperties;
 import com.example.orderservice.dto.ProductResponse;
 import com.example.orderservice.exception.ProductNotFoundException;
 import com.example.orderservice.exception.ProductInactiveException;
@@ -13,9 +14,11 @@ public class ProductClient {
 
     private final RestClient restClient;
 
-    public ProductClient() {
+    public ProductClient(
+            ProductServiceProperties properties) {
+
         this.restClient =
-                RestClient.create("http://localhost:8081");
+                RestClient.create(properties.getUrl());
     }
 
     public ProductResponse getProductById(Long productId) {

@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: product-service
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1434;databaseName=PRODUCT_DB;encrypt=true;trustServerCertificate=true
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:SqlServer@123}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.SQLServerDialect
+
+server:
+  port: 8081

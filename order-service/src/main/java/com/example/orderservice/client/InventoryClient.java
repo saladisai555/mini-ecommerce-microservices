@@ -1,5 +1,6 @@
 package com.example.orderservice.client;
 
+import com.example.orderservice.config.InventoryServiceProperties;
 import com.example.orderservice.exception.InventoryServiceException;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
@@ -11,9 +12,11 @@ public class InventoryClient {
 
     private final RestClient restClient;
 
-    public InventoryClient() {
+    public InventoryClient(
+            InventoryServiceProperties properties) {
+
         this.restClient =
-                RestClient.create("http://localhost:8083");
+                RestClient.create(properties.getUrl());
     }
 
     public void reduceStock(

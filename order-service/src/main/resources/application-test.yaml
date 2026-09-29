@@ -1,0 +1,7 @@
+product:
+  service:
+    url: http://localhost:8081
+
+inventory:
+  service:
+    url: http://localhost:8083

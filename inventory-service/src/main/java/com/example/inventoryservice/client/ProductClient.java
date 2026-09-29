@@ -1,5 +1,6 @@
 package com.example.inventoryservice.client;
 
+import com.example.inventoryservice.Config.ProductServiceProperties;
 import com.example.inventoryservice.dto.ProductResponse;
 import com.example.inventoryservice.exception.ProductNotFoundException;
 import com.example.inventoryservice.exception.ProductServiceUnavailableException;
@@ -7,6 +8,7 @@ import com.example.inventoryservice.exception.ProductServiceUnavailableException
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.client.RestClientException;
 
 @Component
@@ -14,10 +16,10 @@ public class ProductClient {
 
     private final RestClient restClient;
 
-    public ProductClient() {
+    public ProductClient(ProductServiceProperties properties) {
 
         this.restClient =
-                RestClient.create("http://localhost:8081");
+                RestClient.create(properties.getUrl());
     }
 
     public ProductResponse getProductById(

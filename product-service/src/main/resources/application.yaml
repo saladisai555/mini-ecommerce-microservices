@@ -1,6 +1,6 @@
 spring:
   application:
-    name: product-service
+    name: PRODUCT-SERVICE
 
   datasource:
     url: jdbc:sqlserver://localhost:1434;databaseName=PRODUCT_DB;encrypt=true;trustServerCertificate=true
@@ -19,3 +19,8 @@ spring:
 
 server:
   port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

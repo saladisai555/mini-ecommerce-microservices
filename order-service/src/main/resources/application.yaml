@@ -1,6 +1,6 @@
 spring:
   application:
-    name: order-service
+    name: ORDER-SERVICE
 
   datasource:
     url: jdbc:sqlserver://localhost:1434;databaseName=ORDER_DB;encrypt=true;trustServerCertificate=true
@@ -27,3 +27,8 @@ product:
 inventory:
   service:
     url: http://localhost:8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,9 +1,6 @@
 spring:
   application:
-    name: inventory-service
-
-  profiles:
-    default:dev
+    name: INVENTORY-SERVICE
 
   datasource:
     url: jdbc:sqlserver://localhost:1434;databaseName=INVENTORY_DB;encrypt=true;trustServerCertificate=true
@@ -27,3 +24,8 @@ server:
 product:
   service:
     url: http://localhost:8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
